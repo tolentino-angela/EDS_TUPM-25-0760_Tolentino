@@ -1,7 +1,11 @@
 from data_loader import load_data
 from preprocess import preprocess_data
 from analysis import detect_anomalies
-from visualization import plot_anomalies
+from visualization import (
+    plot_anomalies,
+    animate_vibration,
+    animate_anomalies
+)
 import os
 
 def main():
@@ -16,6 +20,8 @@ def main():
     df.to_csv("outputs/results/analyzed_data.csv", index=False)
 
     plot_anomalies(df)
+    animate_vibration(df)
+    animate_anomalies(df)
 
     print("✅ Pipeline completed successfully!")
 
